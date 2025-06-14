@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const db = require("./db.js");
+// const db = require("./db.js");
 
 const app = express();
 const PORT = 3000;
@@ -14,10 +14,11 @@ app.post("/submit", async (req, res) => {
     const { ip_address, user_agent } = req.body;
 
     try {
-        await db.query(
-            `INSERT INTO ip.ip_logs (ip_address, user_agent) VALUES ($1, $2)`,
-            [ip_address, user_agent]
-        );
+        // await db.query(
+        //     `INSERT INTO ip.ip_logs (ip_address, user_agent) VALUES ($1, $2)`,
+        //     [ip_address, user_agent]
+        // );
+        console.log(ip_address, user_agent);
         res.json({ message: "IP successfully submitted!" });
     } catch (err) {
         console.error(err);
